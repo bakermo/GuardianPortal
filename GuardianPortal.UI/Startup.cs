@@ -23,6 +23,8 @@ namespace GuardianPortal
             services.AddSpaStaticFiles(configuration => {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddSingleton<Services.Interfaces.IBungieApiService, Services.Implementations.BungieApiService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +36,7 @@ namespace GuardianPortal
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment()) {
@@ -46,7 +48,7 @@ namespace GuardianPortal
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    pattern: "api/{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa => {
