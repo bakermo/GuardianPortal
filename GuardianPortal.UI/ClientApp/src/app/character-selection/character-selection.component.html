@@ -1,0 +1,39 @@
+<h1>Character Data</h1>
+<div>
+  <div class="row">
+    <div *ngFor="let character of profile | keyvalue" class="col-lg-4">
+      <!--<span>TEST</span>-->
+      <div>
+        {{character.value.classDisplay}}
+      </div>
+      <div>
+        {{character.value.raceDisplay}}  {{character.value.genderDisplay}}
+      </div>
+      <div>
+        <img src="https://www.bungie.net/{{character.value.emblemBackgroundPath}}" />
+      </div>
+      <div>
+        Time wasted on this character: {{character.value.minutesPlayedTotal}}
+      </div>
+      <div>
+        Light Level: {{character.value.light}}
+      </div>
+      <div>
+        Date last played: {{character.value.dateLastPlayed}}
+      </div>
+      <div>
+        
+      </div>
+
+    </div>
+    <!--<div class="col-lg-4">
+      <span> TEST </span>
+    </div>
+    <div class="col-lg-4">
+      <span> TEST </span>
+    </div>
+    <div class="col-lg-4">
+      <span> TEST </span>
+    </div>-->
+  </div>
+</div>

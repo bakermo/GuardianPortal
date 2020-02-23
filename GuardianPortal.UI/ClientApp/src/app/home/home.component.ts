@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public profile: any;
-  constructor(http: HttpClient) {
-    console.log('getting dummy data');
-    http.get('/api/profile/membership').subscribe(result => {
-      this.profile = result;
-      console.log('profile ==', JSON.parse(this.profile.result));
-    }, error => console.error(error));
+  constructor() {
+    
   }
 }
 

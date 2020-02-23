@@ -28,9 +28,19 @@ namespace GuardianPortal.UI.Controllers
         [Route("membership")]
         public async Task<IActionResult> GetProfileByMembership() {
             long membershipId = 4611686018468065718;
-            string[] components = { "Profiles", "Characters" };
+            //string[] components = { "Profiles", "Characters" };
+            string[] components = { "Characters" };
             var profile = await _bungieApiService.GetProfileByMembership(membershipId, components);
             return Ok(profile);
+        }
+
+        [HttpGet]
+        [Route("character")]
+        public async Task<IActionResult> GetCharacters() {
+            //long membershipId = 4611686018468065718;
+            long membershipId = 4611686018487566375; //Jeff
+            var characters = await _bungieApiService.GetCharactersByMembership(membershipId);
+            return Ok(characters);
         }
     }
 }
